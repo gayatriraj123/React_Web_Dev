@@ -3,7 +3,7 @@ import UserCard from './components/userCard'
 import A from './assets/a.jpg'
 import Counter from './components/Counter/Counter'
 import Card from './components/Card/Card'
-import { useState } from 'react'
+import { createContext, useState } from 'react'
 import Button from './components/Button/Button'
 import Card1 from './components/Card1/Card1'
 import LogOut from './components/LogOut'
@@ -11,8 +11,29 @@ import LoginBtn from './components/LoginBtn'
 import { useEffect } from 'react'
 import LoggerComponent from './components/LoggerComponent'
 import TimerComponet from './components/TimerComponet'
+import ChildA from './components/Child/ChildA'
+
+  //step 1:
+  //create context
+  const UserContext = createContext();
+  //step 2: wrap all the child inside a provider
+  //step 3: pass the value
+  //step 4: consumer ke andar jake consume karlo
+  const ThemeComtext = createContext();
 
 function App() {
+  // const[user, setUser] = useState({name:"gayatri"});
+  const [theme, setTheme] = useState('light');
+  return(
+    <>
+      <ThemeComtext.Provider vlaue = {theme}>
+        <ChildA/>
+      </ThemeComtext.Provider>
+      {/* <UserContext value = {user}>
+        <ChildA/>
+      </UserContext> */}
+    </>
+  )
   ///////////
     // const [count, setCount] = useState(0);
 
@@ -147,45 +168,54 @@ function App() {
   //     }
   // },[count])
 
-  return (
-    <div>
-      {/* <button onClick={handleClick}>
-        click me
-      </button>
-      <br/>
-      count is:{count}
 
-      <button onClick={handleClickTotal}>
-        update total
-      </button>
-      <br/>
-      total is:{total} */}
-    {/* <p onMouseOver={handleMouseOver} style={{border:"solid black 2px"}}>
-      I am Paragraph
-    </p>
-     <button onClick={handleClick}>
-        Click me
-     </button>  */}
-     {/* <form onSubmit={handleSubmit}>
-      <input type='text' onChange={handleInputChange}>
-      </input>
-      <button type='submit'>Submit</button>
-     </form> */}
-     {/* <button onClick={alert("immediate invoke")}>
-      click me 
-     </button>
-     <button onClick={() => alert("button are clicked")}> 
-      click me
-     </button> */}
+
+
+  // return (
+  //   <div>
+  //     <UserContext.Provider>
+  //          <ChildA/>
+  //     </UserContext.Provider>
+      
+  //     {/* <button onClick={handleClick}>
+  //       click me
+  //     </button>
+  //     <br/>
+  //     count is:{count}
+
+  //     <button onClick={handleClickTotal}>
+  //       update total
+  //     </button>
+  //     <br/>
+  //     total is:{total} */}
+  //   {/* <p onMouseOver={handleMouseOver} style={{border:"solid black 2px"}}>
+  //     I am Paragraph
+  //   </p>
+  //    <button onClick={handleClick}>
+  //       Click me
+  //    </button>  */}
+  //    {/* <form onSubmit={handleSubmit}>
+  //     <input type='text' onChange={handleInputChange}>
+  //     </input>
+  //     <button type='submit'>Submit</button>
+  //    </form> */}
+  //    {/* <button onClick={alert("immediate invoke")}>
+  //     click me 
+  //    </button>
+  //    <button onClick={() => alert("button are clicked")}> 
+  //     click me
+  //    </button> */}
      
-    {/* // runs on every render */}
-    {/* <LoggerComponent/> */}
-    {/* //it will runs on first render */}
-    {/* <TimerComponet/> */}
+  //   {/* // runs on every render */}
+  //   {/* <LoggerComponent/> */}
+  //   {/* //it will runs on first render */}
+  //   {/* <TimerComponet/> */}
     
-    </div>
-  )
+  //   </div>
+  // )
 }
 
 export default App
+export {UserContext}
+export  {ThemeComtext}
  
