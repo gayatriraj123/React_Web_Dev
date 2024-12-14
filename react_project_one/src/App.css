@@ -1,6 +1,16 @@
-.container
+/* .container
 {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+} */
+#container{
+  height: 200px;
+  width: 200px;
+  border: solid 2px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: beige;
 }

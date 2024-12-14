@@ -19,16 +19,19 @@ import ChildA from './components/Child/ChildA'
   //step 2: wrap all the child inside a provider
   //step 3: pass the value
   //step 4: consumer ke andar jake consume karlo
-  const ThemeComtext = createContext();
+  const ThemeContext = createContext();
 
 function App() {
   // const[user, setUser] = useState({name:"gayatri"});
   const [theme, setTheme] = useState('light');
   return(
     <>
-      <ThemeComtext.Provider vlaue = {theme}>
-        <ChildA/>
-      </ThemeComtext.Provider>
+      <ThemeContext.Provider value = {{theme, setTheme}}>
+        <div id='container' style={{backgroundColor:theme==='light'?"beige":"black"}}>
+          <ChildA/>
+        </div>
+        
+      </ThemeContext.Provider>
       {/* <UserContext value = {user}>
         <ChildA/>
       </UserContext> */}
@@ -37,10 +40,10 @@ function App() {
   ///////////
     // const [count, setCount] = useState(0);
 
-    function handleClick()
-    { 
-      setCount(count+1);
-    }
+    // function handleClick()
+    // { 
+    //   setCount(count+1);
+    // }
     //////////////
     const [name, setName ]= useState(' ');
     /////////////////
@@ -216,6 +219,6 @@ function App() {
 }
 
 export default App
-export {UserContext}
-export  {ThemeComtext}
+// export {UserContext}
+export  {ThemeContext}
  
